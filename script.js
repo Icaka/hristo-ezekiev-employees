@@ -24,7 +24,8 @@ document.getElementById('processButton').addEventListener('click', () => {
 
 		console.log('pairs ');
 		const allPairs = createPairs(data);
-		
+		console.log(`Result is`);
+		console.log(getLongestCollab(allPairs));
 
         resultContainer.textContent = 'CSV data loaded and processed.';
     };
@@ -77,7 +78,7 @@ function addToPairs(pairs, emp1, emp2, projId, duration) {
 function getLongestCollab(pairs) {
 	let longestDuration = 0;
 	let result;
-	for(let pair in pairs) {
+	for(const pair of pairs) {
 		if(pair.getFullDuration() > longestDuration) {
 			longestDuration = pair.getFullDuration();
 			result = pair;
