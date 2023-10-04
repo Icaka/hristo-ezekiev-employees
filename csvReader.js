@@ -24,6 +24,9 @@ function processData(csvData) {
 		
 		if(dateTo == 'NULL')
 			dateTo = getToday();
+        
+        dateFrom = new Date(dateFrom);
+        dateTo = new Date(dateTo);
 
         if (empID && projectID && dateFrom) {
             data.push({ empID, projectID, dateFrom, dateTo });
