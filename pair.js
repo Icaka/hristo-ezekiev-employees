@@ -37,7 +37,7 @@ function getOverlapDays(startDate1, endDate1, startDate2, endDate2) {
   
     const overlapInMilliseconds = minEndDate - maxStartDate;
     const overlapInDays = overlapInMilliseconds / (1000 * 60 * 60 * 24); // overlap in days
-  
+
     if (overlapInDays > 0) {
         return overlapInDays;
     } else {

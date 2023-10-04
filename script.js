@@ -55,7 +55,7 @@ function createPairs(data)
 				//console.log(`DURATION: ${duration}`)
 				if(duration > 0) {			
 					//console.log('PAIR FOUND');	
-					addToPairs(pairs, person1.empID, person2.empID, person1.projectID, duration);
+					addToPairs(pairs, person1.empID, person2.empID, person1.projectID, Math.round(duration));
 				}
 			}
 		}
