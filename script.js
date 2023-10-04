@@ -27,6 +27,8 @@ document.getElementById('processButton').addEventListener('click', () => {
 		console.log(`Result is`);
 		console.log(getLongestCollab(allPairs));
 
+		displayResult(getLongestCollab(allPairs));
+
         resultContainer.textContent = 'CSV data loaded and processed.';
     };
 
@@ -85,4 +87,30 @@ function getLongestCollab(pairs) {
 		}
 	}
 	return result;
+}
+
+function displayResult(result) {
+	document.getElementById("visualisePair").innerHTML = `${result.name1}---${result.name2}---<strong>${result.getFullDuration()}</strong>`;
+	let table = document.getElementById("tableBody");
+	
+	result.projects.forEach(function(value, key) {
+		const row = document.createElement("tr");
+
+		let c1 = document.createElement("td");
+		let c2 = document.createElement("td");
+		let c3 = document.createElement("td");
+		let c4 = document.createElement("td");
+
+		c1.innerText = result.name1;
+		c2.innerText = result.name2;
+		c3.innerText = key;
+		c4.innerText = value;
+
+		row.appendChild(c1);
+		row.appendChild(c2);
+		row.appendChild(c3);
+		row.appendChild(c4);
+		
+		table.appendChild(row);
+	})
 }
